@@ -2,6 +2,8 @@ package com.cute.meido;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.Context;
+import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -60,6 +62,7 @@ import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.cute.meido.dialog.CardPickerDialog;
 import com.cute.meido.utils.ThemeHelper;
 
+import java.nio.charset.MalformedInputException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -81,10 +84,14 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         buildDatabase();
         buildListview();
         buildPkgMap();
+        initObserver();
+
+
+    }
+    public void initObserver(){
         MCCObserver missedCallObserver = new MCCObserver(this.getApplicationContext(),null);
         getContentResolver().registerContentObserver(CallLog.Calls.CONTENT_URI, false,
                 missedCallObserver);
-
     }
 
     @Override
@@ -122,11 +129,13 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
             return true;
         }
         if (item.getItemId() == R.id.set_unMute){
-            Toast.makeText(this, " 取消静音 施工中", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent("com.cute.meido.unmote");
+            MainActivity.this.sendBroadcast(intent);
             return true;
         }
         if (item.getItemId() == R.id.set_loc){
             Toast.makeText(this, " 设置定位精度 施工中", Toast.LENGTH_SHORT).show();
+
             return true;
         }
         return super.onOptionsItemSelected(item);

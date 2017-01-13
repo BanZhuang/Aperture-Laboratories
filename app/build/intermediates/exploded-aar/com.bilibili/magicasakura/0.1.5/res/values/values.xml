@@ -6,7 +6,55 @@
     <declare-styleable name="TintButton"><attr name="backgroundTint"/><attr name="backgroundTintMode"/></declare-styleable>
     <declare-styleable name="TintCheckBox"><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr name="compoundButtonTint"/><attr name="compoundButtonTintMode"/></declare-styleable>
     <declare-styleable name="TintCheckedTextView"><attr name="drawableLeftTint"/></declare-styleable>
-    <declare-styleable name="TintDrawableHelper"><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="foregroundTint"/><attr name="foregroundTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr format="color" name="imageTint"/><attr name="imageTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr format="color" name="drawableLeftTint"/><attr name="drawableLeftTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr format="color" name="drawableTopTint"/><attr name="drawableTopTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr format="color" name="drawableRightTint"/><attr name="drawableRightTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr format="color" name="drawableBottomTint"/><attr name="drawableBottomTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr format="color" name="compoundButtonTint"/><attr name="compoundButtonTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr format="color" name="drawableTint"/><attr name="drawableTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr format="color" name="progressTint"/><attr format="color" name="progressIndeterminateTint"/></declare-styleable>
+    <declare-styleable name="TintDrawableHelper"><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="foregroundTint"/><attr name="foregroundTintMode">
+            <enum name="src_over" value="3"/>
+            <enum name="src_in" value="5"/>
+            <enum name="src_atop" value="9"/>
+            <enum name="multiply" value="14"/>
+            <enum name="screen" value="15"/>
+        </attr><attr format="color" name="imageTint"/><attr name="imageTintMode">
+            <enum name="src_over" value="3"/>
+            <enum name="src_in" value="5"/>
+            <enum name="src_atop" value="9"/>
+            <enum name="multiply" value="14"/>
+            <enum name="screen" value="15"/>
+        </attr><attr format="color" name="drawableLeftTint"/><attr name="drawableLeftTintMode">
+            <enum name="src_over" value="3"/>
+            <enum name="src_in" value="5"/>
+            <enum name="src_atop" value="9"/>
+            <enum name="multiply" value="14"/>
+            <enum name="screen" value="15"/>
+        </attr><attr format="color" name="drawableTopTint"/><attr name="drawableTopTintMode">
+            <enum name="src_over" value="3"/>
+            <enum name="src_in" value="5"/>
+            <enum name="src_atop" value="9"/>
+            <enum name="multiply" value="14"/>
+            <enum name="screen" value="15"/>
+        </attr><attr format="color" name="drawableRightTint"/><attr name="drawableRightTintMode">
+            <enum name="src_over" value="3"/>
+            <enum name="src_in" value="5"/>
+            <enum name="src_atop" value="9"/>
+            <enum name="multiply" value="14"/>
+            <enum name="screen" value="15"/>
+        </attr><attr format="color" name="drawableBottomTint"/><attr name="drawableBottomTintMode">
+            <enum name="src_over" value="3"/>
+            <enum name="src_in" value="5"/>
+            <enum name="src_atop" value="9"/>
+            <enum name="multiply" value="14"/>
+            <enum name="screen" value="15"/>
+        </attr><attr format="color" name="compoundButtonTint"/><attr name="compoundButtonTintMode">
+            <enum name="src_over" value="3"/>
+            <enum name="src_in" value="5"/>
+            <enum name="src_atop" value="9"/>
+            <enum name="multiply" value="14"/>
+            <enum name="screen" value="15"/>
+        </attr><attr format="color" name="drawableTint"/><attr name="drawableTintMode">
+            <enum name="src_over" value="3"/>
+            <enum name="src_in" value="5"/>
+            <enum name="src_atop" value="9"/>
+            <enum name="multiply" value="14"/>
+            <enum name="screen" value="15"/>
+        </attr><attr format="color" name="progressTint"/><attr format="color" name="progressIndeterminateTint"/></declare-styleable>
     <declare-styleable name="TintEditText"><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr name="drawableLeftTint"/><attr name="drawableLeftTintMode"/><attr name="drawableRightTint"/><attr name="drawableRightTintMode"/><attr name="drawableTopTint"/><attr name="drawableTopTintMode"/><attr name="drawableBottomTint"/><attr name="drawableBottomTintMode"/></declare-styleable>
     <declare-styleable name="TintFrameLayout"><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr name="foregroundTint"/><attr name="foregroundTintMode"/></declare-styleable>
     <declare-styleable name="TintGridLayout"><attr name="backgroundTint"/><attr name="backgroundTintMode"/></declare-styleable>

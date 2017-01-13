@@ -31,13 +31,14 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name="com.cute.meido.MyApplication">
-        <activity android:name=".NewRegularActivity" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".NewRegularActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <service
             android:name=".MeidoService"
@@ -51,7 +52,8 @@
         <service android:name="com.amap.api.location.APSService" />
 
         <activity android:name=".PickAppActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -48,6 +48,7 @@ public class MeidoService extends Service {
         intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
         intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
         intentFilter.addAction("com.cute.meido.MISSED_CALL");
+        intentFilter.addAction("com.cute.meido.unmote");
         myReceiver = new MyReceiver();
         registerReceiver(myReceiver, intentFilter);
         locationClient = new AMapLocationClient(this.getApplicationContext());
@@ -97,6 +98,9 @@ public class MeidoService extends Service {
                     Toast.makeText(context, "测试用 接收到广播 未接来电" , Toast.LENGTH_SHORT).show();
                     telNumber = intent.getStringExtra("number");
                     searchAction(ToolBox.regularMap.get("com.cute.meido.MISSED_CALL"));
+                    break;
+                case "com.cute.meido.unmote":
+                    doActionUnMote();
                     break;
             }
         }
@@ -279,6 +283,29 @@ public class MeidoService extends Service {
         mOption.setSensorEnable(false);//可选，设置是否使用传感器。默认是false
         mOption.setWifiScan(true); //可选，设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
         return mOption;
+    }
+    private void doActionUnMote(){
+        AudioManager audioManager;
+        Toast.makeText(this, " 取消静音 施工中", Toast.LENGTH_SHORT).show();
+        Context context = getBaseContext();
+        audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
+        final int version = Build.VERSION.SDK_INT;
+        if (version >= 23) {
+            audioManager.adjustStreamVolume(AudioManager.STREAM_RING, AudioManager.ADJUST_UNMUTE,AudioManager.FLAG_SHOW_UI);
+            audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_UNMUTE,AudioManager.FLAG_SHOW_UI);
+            audioManager.adjustStreamVolume(AudioManager.STREAM_NOTIFICATION, AudioManager.ADJUST_UNMUTE,AudioManager.FLAG_SHOW_UI);
+            audioManager.setStreamVolume(AudioManager.STREAM_RING, 2,AudioManager.FLAG_SHOW_UI);
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 2,AudioManager.FLAG_SHOW_UI);
+            audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, 2,AudioManager.FLAG_SHOW_UI);
+        } else {
+            audioManager.setStreamMute(AudioManager.STREAM_RING, false);
+            audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
+            audioManager.setStreamMute(AudioManager.STREAM_NOTIFICATION, false);
+            audioManager.setStreamVolume(AudioManager.STREAM_RING, 2,AudioManager.FLAG_SHOW_UI);
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 2,AudioManager.FLAG_SHOW_UI);
+            audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, 2,AudioManager.FLAG_SHOW_UI);
+
+        }
     }
 }
 

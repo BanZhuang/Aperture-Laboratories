@@ -1,3 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_af18b2bdec5e92ac951228eea7f782f12868cf6a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ff700e796a4a8b4f3b294b5b810b288ae3dfcb86\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\libs\AMap2DMap_2.9.3_AMapLocation_3.2.0_20161205.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="38537229ca8d337ff285c8436b04e616292cd4aa">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\AMap2DMap_2.9.3_AMapLocation_3.2.0_20161205_939c8c7cba8e7ffd604efbbaaff38f39e44e7e9c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_c40b46336d94ab381959eaf2ae763a74ce1260cf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_391cdac1cb6d5797f75636188ed6ba3e18c44eda\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f351e6426f173442d2d31c8de84758769f963092\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\gridlayout-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7c4c1fcc34aca536e3389c31527fb3c941b80266">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-gridlayout-v7-23.4.0_19a79df47e56c2994689f90d7928fcecc3d321ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_6ddfacf41c81cc87cf45d6fbe60a79f1dd8d0080\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_9c6e661a1a8acb4fc09a5a120b47705650aa2351\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_4b95417d4caec84b8caf58ca9704bb79ee5d39b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_b65e5fbb8d614a3cdf6e1f149a1e58d6e69a66af\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e95afbd0b267c34f4f1e5e95064d7fe67383bc38">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8f87e7e94e84de9ccb363aa08789fe4bc67b9793\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_d1b0d7b971bcf41f6fa8ea18a94d79bb64ac0014\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_caad1e6a6138d22f0ac5ddb0dc3d64769803faab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_fc869dcc83c27665ac4ae41a01930fe87040caae\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b91725d088ea9f90e6fe053c6569f47952e3fdc5">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_96e4d82bd5fe61531e95bb527df5711e56ff9ac9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_4c05914d949a61f10651f5a7bc4d8910a8d8a670\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_e072afbdf43cdeab5ead94d8c1a70e476b50f9d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_2618c845473e324712ee2b2b0d7a75e6452d393e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a7ca73fd1aa0a97eca80d97b446baecc7f2033c5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\Cute\Desktop\MagicaSakura-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_555ebf952d1713276edb0490be55b77096fa23bf\classes.dex" />
+    </item>
+
+</items>

@@ -43,7 +43,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.cute.meido.NewRegularActivity" />
+        <activity
+            android:name="com.cute.meido.NewRegularActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service
             android:name="com.cute.meido.MeidoService"
