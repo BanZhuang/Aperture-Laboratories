@@ -60,10 +60,6 @@
         "source": "C:\\Users\\Cute\\Desktop\\MagicaSakura-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
-        "merged": "C:\\Users\\Cute\\Desktop\\MagicaSakura-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_main.xml",
-        "source": "C:\\Users\\Cute\\Desktop\\MagicaSakura-master\\app\\src\\main\\res\\layout\\content_main.xml"
-    },
-    {
         "merged": "C:\\Users\\Cute\\Desktop\\MagicaSakura-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_alert_progress.xml",
         "source": "C:\\Users\\Cute\\Desktop\\MagicaSakura-master\\app\\build\\intermediates\\exploded-aar\\com.bilibili\\magicasakura\\0.1.5\\res\\layout\\dialog_alert_progress.xml"
     },

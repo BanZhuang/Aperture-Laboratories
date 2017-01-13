@@ -18,20 +18,28 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/add_regular"
+        android:orderInCategory="10"
+        android:title="新建规则"
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/change_theme"
+        android:orderInCategory="20"
         android:title="选择主题"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/unMute"
-        android:orderInCategory="90"
+        android:id="@+id/set_unMute"
+        android:orderInCategory="30"
         android:title="取消静音"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/loc_settings"
-        android:orderInCategory="100"
+        android:id="@+id/set_loc"
+        android:orderInCategory="40"
         android:title="设置定位精度"
         app:showAsAction="never" />
 

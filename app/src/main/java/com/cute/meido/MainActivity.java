@@ -81,16 +81,7 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         buildDatabase();
         buildListview();
         buildPkgMap();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NewRegularActivity.class);
-                startActivity(intent);
-            }
-        });
         MCCObserver missedCallObserver = new MCCObserver(this.getApplicationContext(),null);
-
         getContentResolver().registerContentObserver(CallLog.Calls.CONTENT_URI, false,
                 missedCallObserver);
 
@@ -123,6 +114,19 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
             CardPickerDialog dialog = new CardPickerDialog();
             dialog.setClickListener(this);
             dialog.show(getSupportFragmentManager(), CardPickerDialog.TAG);
+            return true;
+        }
+        if (item.getItemId() == R.id.add_regular){
+            Intent intent = new Intent(MainActivity.this, NewRegularActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if (item.getItemId() == R.id.set_unMute){
+            Toast.makeText(this, " 取消静音 施工中", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (item.getItemId() == R.id.set_loc){
+            Toast.makeText(this, " 设置定位精度 施工中", Toast.LENGTH_SHORT).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
