@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+       <CheckBox
+           android:text="星期日"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/checkBox1"
+           android:checked="false"
+           android:padding="10dp"
+           android:duplicateParentState="false"
+           android:textAlignment="viewStart" />
+
+       <CheckBox
+           android:text="星期一"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/checkBox2"
+           android:checked="false"
+           android:padding="10dp" />
+
+       <CheckBox
+           android:text="星期二"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/checkBox3"
+           android:checked="false"
+           android:padding="10dp" />
+
+       <CheckBox
+           android:text="星期三"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/checkBox4"
+           android:checked="false"
+           android:padding="10dp" />
+       <CheckBox
+           android:text="星期四"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/checkBox5"
+           android:checked="false"
+           android:padding="10dp" />
+
+       <CheckBox
+           android:text="星期五"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/checkBox6"
+           android:checked="false"
+           android:padding="10dp" />
+
+       <CheckBox
+           android:text="星期六"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/checkBox7"
+           android:checked="false"
+           android:padding="10dp" />
+
+</LinearLayout>

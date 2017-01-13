@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="theme_color_primary">#F596AA</color>
+    <color name="theme_color_primary_dark">#F596AA</color>
+    <color name="theme_color_primary_trans">#F596AA</color>
+    <color name="theme_color_secondary">#F596AA</color>
+    <color name="text_primary_color">#2d2d2d</color>
+    <color name="window_background">#eaeaea</color>
+    <color name="black_light">#333333</color>
+    <color name="white">#ffffff</color>
+    <color name="white_trans">#99ffffff</color>
+    <!-- mizu 水 -->
+    <color name="gray_dark">#81C7D4</color>
+    <color name="gray_trans">#81C7D4</color>
+    <color name="gray_light">#81C7D4</color>
+
+
+        <!-- "momo" #F596AA  桃 -->
+        <!-- "seiheki"  #268785  青碧 -->
+        <!-- "asagi"    #33A6B8  浅葱 -->
+        <!-- "sora" #58B2DC  空 -->
+        <!-- "shinbashi"    #0089A7  新橘 -->
+        <!-- "kuchiba"  #E2943B  朽叶 -->
+        <!-- "oitake"   #6A8372  老竹 -->
+        <!-- "ebizome"  #6D2E5B  葡萄 -->
+
+    <!-- "momo">#F596AA -->
+
+    <color name="pink">#F596AA</color>
+    <color name="pink_dark">#F596AA</color>
+    <color name="pink_trans">#99f0486c</color>
+
+    <!-- "seiheki"  #268785  青碧 -->
+    <color name="blue">#268785</color>
+    <color name="blue_dark">#268785</color>
+    <color name="blue_trans">#B41A78C3</color>
+
+    <!-- "asagi"    #33A6B8  浅葱 -->
+    <color name="purple">#33A6B8</color>
+    <color name="purple_dark">#33A6B8</color>
+    <color name="purple_trans">#99673AB7</color>
+
+    <!-- "sora" #58B2DC  空 -->
+    <color name="green">#58B2DC</color>
+    <color name="green_dark">#58B2DC</color>
+    <color name="green_trans">#994CAF50</color>
+
+    <!-- "shinbashi"    #0089A7  新橘 -->
+    <color name="shinbashi">#0089A7</color>
+    <color name="shinbashi_dark">#0089A7</color>
+    <color name="shinbashi_trans">#998BC34A</color>
+
+    <!-- "kuchiba"  #E2943B  朽叶 -->
+    <color name="yellow">#E2943B</color>
+    <color name="yellow_dark">#E2943B</color>
+    <color name="yellow_trans">#99FDD835</color>
+
+    <!-- "oitake"   #6A8372  老竹 -->
+    <color name="orange">#6A8372</color>
+    <color name="orange_dark">#6A8372</color>
+    <color name="orange_trans">#99FF9800</color>
+
+    <!-- "ebizome"  #6D2E5B  葡萄 -->
+    <color name="red">#6D2E5B</color>
+    <color name="red_dark">#6D2E5B</color>
+    <color name="red_trans">#99F44336</color>
+
+   <!-- nippon color -->
+    <color name="momo">#F596AA</color> <!-- 桃 -->
+    <color name="kohbai">#E16B8C</color> <!-- 红梅 -->
+    <color name="seiheki">#268785</color> <!-- 青碧 -->
+    <color name="asagi">#33A6B8</color> <!-- 浅葱 -->
+    <color name="sora">#58B2DC</color> <!-- 空 -->
+    <!-- color name="shinbashi">#0089A7</color>  新橘 -->
+    <color name="kuchiba">#E2943B</color> <!-- 朽叶 -->
+    <color name="kyara">#78552B</color> <!-- 伽罗 -->
+    <color name="usugaki">#ECB88A</color> <!-- 薄柿 -->
+    <color name="yamabukicha">#D19826</color> <!-- 山吹茶 -->
+    <color name="oitake">#6A8372</color> <!-- 老竹 -->
+    <color name="kitsune">#9B6E23</color> <!-- 狐 -->
+    <color name="aonibi">#535953</color> <!-- 青纯 -->
+    <color name="shironeri">#FCFAF2</color> <!-- 白练 -->
+    <color name="ebizome">#6D2E5B</color> <!-- 葡萄 -->
+    <color name="tsuyukusa">#2EA9DF</color> <!-- 露草 -->
+    <color name="wasurenagusa">#7DB9DE</color> <!-- 勿忘草 -->
+    <color name="mizu">#81C7D4</color> <!-- 水 -->
+    <color name="umezome">#E9A368</color> <!-- 梅染 -->
+
+
+
+</resources>
+
