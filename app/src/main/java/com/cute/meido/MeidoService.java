@@ -23,6 +23,7 @@ import com.amap.api.location.AMapLocationClientOption.AMapLocationMode;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps2d.AMapUtils;
 import com.amap.api.maps2d.model.LatLng;
+import com.cute.meido.utils.ToolBox;
 
 /*
 移除对双卡的支持
@@ -307,5 +308,6 @@ public class MeidoService extends Service {
 
         }
     }
+
 }
 

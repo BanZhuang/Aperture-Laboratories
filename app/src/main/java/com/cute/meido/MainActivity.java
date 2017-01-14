@@ -2,8 +2,6 @@ package com.cute.meido;
 
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.content.Context;
-import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,54 +13,25 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.cute.meido.adapter.RegularAdapter;
+import com.cute.meido.adapter.RegularInfo;
 import com.cute.meido.dialog.CardPickerDialog;
 import com.cute.meido.utils.ThemeHelper;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
-import android.os.Bundle;
 import android.provider.CallLog;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.bilibili.magicasakura.utils.ThemeUtils;
-import com.cute.meido.dialog.CardPickerDialog;
-import com.cute.meido.utils.ThemeHelper;
-
-import java.nio.charset.MalformedInputException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -135,8 +104,10 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         }
         if (item.getItemId() == R.id.set_loc){
             Toast.makeText(this, " 设置定位精度 施工中", Toast.LENGTH_SHORT).show();
-
             return true;
+        }
+        if (item.getItemId() == R.id.about){
+            startActivity(new Intent(MainActivity.this,ScrollingActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

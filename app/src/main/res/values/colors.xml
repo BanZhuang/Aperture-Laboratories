@@ -5,7 +5,7 @@
     <color name="theme_color_primary_dark">#F596AA</color>
     <color name="theme_color_primary_trans">#F596AA</color>
     <color name="theme_color_secondary">#F596AA</color>
-    <color name="text_primary_color">#2d2d2d</color>
+    <color name="text_primary_color">#1C1C1C</color>
     <color name="window_background">#eaeaea</color>
     <color name="black_light">#333333</color>
     <color name="white">#ffffff</color>
@@ -86,6 +86,8 @@
     <color name="wasurenagusa">#7DB9DE</color> <!-- 勿忘草 -->
     <color name="mizu">#81C7D4</color> <!-- 水 -->
     <color name="umezome">#E9A368</color> <!-- 梅染 -->
+    <color name="sumi">#1C1C1C</color> <!-- 墨 -->
+-    <color name="nisemurasaki">#562E37</color> <!-- 似紫 -->
 
 
 

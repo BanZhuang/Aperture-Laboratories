@@ -1,4 +1,4 @@
-package com.cute.meido;
+package com.cute.meido.adapter;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;

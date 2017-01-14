@@ -1,5 +1,5 @@
 
-package com.cute.meido;
+package com.cute.meido.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -23,14 +23,14 @@ public class ToolBox {
 	抵达位置 离开位置 打开蓝牙 插入耳机 未接来电 充电连接
         */
 
-	static String DEBUG_TAG = "Meido_Debug";
+	public static String DEBUG_TAG = "Meido_Debug";
+	public final static int PICK_START_APP = 1;
+	public final static int PICK_SEND_SMS = 2;
+	public final static int PICK_START_TIME_MSG_CODE = 3;
+	public final static int PICK_END_TIME_MSG_CODE = 4;
+	public final static String PICK_TIME = "PICK_TIME";
+	public static Map<String,String> regularMap = new HashMap<>();
 
-	final static int PICK_START_APP = 1;
-	final static int PICK_SEND_SMS = 2;
-	final static int PICK_START_TIME_MSG_CODE = 3;
-	final static int PICK_END_TIME_MSG_CODE = 4;
-	final static String PICK_TIME = "PICK_TIME";
-	static Map<String,String> regularMap = new HashMap<>();
 	static {
         regularMap.put(BluetoothAdapter.ACTION_STATE_CHANGED,"打开蓝牙");
         regularMap.put("android.intent.action.HEADSET_PLUG","插入耳机");
@@ -39,7 +39,7 @@ public class ToolBox {
 
 	}
 
-	final static String[] ACTION_SET =
+	public final static String[] ACTION_SET =
 			{
 			"打开Wi-Fi",
 			"关闭Wi-Fi",
@@ -50,7 +50,7 @@ public class ToolBox {
 			"静音模式",
 			};
 
-	static boolean checkDate(String date){
+	public static boolean checkDate(String date){
 		//检查当前日期是否在在规则的范围内
 		//数据处理开始
 		if(date.equals("每天")){
@@ -86,7 +86,7 @@ public class ToolBox {
 		else
 			return false;
 	}
-	static boolean checkTime(String time){
+	public static boolean checkTime(String time){
 		//检查当前时间是否在在规则的范围内
 		//数据处理开始
 		String[] tempTime;
@@ -116,12 +116,12 @@ public class ToolBox {
 		return false;
 	}
 
-	static boolean checkPremiseInfo(String premise){
+	public static boolean checkPremiseInfo(String premise){
 		Log.d(ToolBox.DEBUG_TAG, "checkPremiseInfo: " + true);
 		return true;
 	}
 
-	static boolean checkTimeSe(String startTime,String endTime){
+	public static boolean checkTimeSe(String startTime,String endTime){
 		Date nowDate = new Date();
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String nowDateStr = format.format(nowDate);

@@ -1,6 +1,5 @@
 package com.cute.meido;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -10,11 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.cute.meido.adapter.AppInfo;
+import com.cute.meido.adapter.AppInfoAdapter;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PickAppActivity extends AppCompatActivity {
 

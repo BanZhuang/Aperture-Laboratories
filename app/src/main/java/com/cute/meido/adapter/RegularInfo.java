@@ -1,4 +1,4 @@
-package com.cute.meido;
+package com.cute.meido.adapter;
 
 /**
  * 规则信息封装类
