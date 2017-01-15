@@ -6,42 +6,48 @@
     android:background="#ffffffff"
     >
 
-    <Button
+    <com.bilibili.magicasakura.widgets.TintButton
+        android:textColor="@color/white"
+        android:background="@color/theme_color_primary"
         android:text="周一到周五"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fiveDay"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+        />
 
     <View
         android:layout_height="1px"
         android:layout_width="match_parent"
-        android:background="#009786"
+        android:background="@color/white"
         />
 
-    <Button
+    <com.bilibili.magicasakura.widgets.TintButton
+        android:textColor="@color/white"
+        android:background="@color/theme_color_primary"
         android:text="每天"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/everyDay"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+         />
 
     <View
     android:layout_height="1px"
     android:layout_width="match_parent"
-    android:background="#009786"
+    android:background="@color/white"
     />
 
-    <Button
+    <com.bilibili.magicasakura.widgets.TintButton
+        android:textColor="@color/white"
+        android:background="@color/theme_color_primary"
         android:text="自定义"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/aHa"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+         />
 
     <View
         android:layout_height="1px"
         android:layout_width="wrap_content"
-        android:background="#009786"
+        android:background="@color/white"
         />
 </LinearLayout>

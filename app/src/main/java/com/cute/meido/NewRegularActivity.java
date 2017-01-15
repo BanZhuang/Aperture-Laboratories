@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.renderscript.Script;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -20,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.PopupWindow;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -52,26 +54,34 @@ import java.util.ArrayList;
 
 
 public class NewRegularActivity  extends AppCompatActivity implements LocationSource,
-        AMapLocationListener{
+        AMapLocationListener,View.OnClickListener{
 
     private AMap aMap;
     private MapView mapView;
     private OnLocationChangedListener mListener;
     private AMapLocationClient locationClient;
     private AMapLocationClientOption mLocationOption;
-    private Spinner spPremise;
-    private Spinner spAction;
-    private TextView startTime;
-    private TextView endTime;
-    private Switch setLocation;
-    private TextView getDate;
-    private Button cancel_btn;
-    private Button add_btn;
-    private String time;
-    private String address = " ";
+
+
+
+    private String time = "00:00";
+
+    // 没有文本交互控件
+    private String premise = " ";
     private String premiseInfo = " ";
+    private String action = " ";
     private String actionInfo = " ";
+
+    private String address = " ";
     private String location = " ";
+
+    private TextView date;
+    private TextView sTime;
+    private TextView eTime;
+    private Switch locSwitch;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,79 +89,59 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
         setContentView(R.layout.activity_new_regular);
         setTitle("新建规则");
         initView();
-        setAdapter();
-        setListener();
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);// 此方法必须重写
         init();
     }
+    private void initView(){
+        //需要和文本交互的控件
+        date = (TextView)findViewById(R.id.nrdate);
+        sTime = (TextView)findViewById(R.id.nrstartTime);
+        eTime = (TextView)findViewById(R.id.nrendTime);
+        locSwitch = (Switch)findViewById(R.id.locSwitch);
 
-    void initView(){
-        spPremise = (Spinner) findViewById(R.id.premise);
-        spAction = (Spinner) findViewById(R.id.action);
-        startTime = (TextView) findViewById(R.id.startTimePicker);
-        endTime = (TextView) findViewById(R.id.endTimePicker);
-        cancel_btn = (Button) findViewById(R.id.cancel_button);
-        add_btn = (Button) findViewById(R.id.add_button);
-        getDate = (TextView) findViewById(R.id.getDate);
-        setLocation = (Switch)findViewById(R.id.switch1);
+        //
+        View viewList[]  = {
+                // 文本交互
+                findViewById(R.id.nrdate),
+                findViewById(R.id.nrstartTime),
+                findViewById(R.id.nrendTime),
+                // 行为交互
+                //findViewById(R.id.locSwitch),
+                // 不需要文本交互1
+                findViewById(R.id.cancel_button),
+                findViewById(R.id.add_button),
+                // na 系
+                findViewById(R.id.naApplication),
+                findViewById(R.id.naBluetoothOff),
+                findViewById(R.id.naBluetoothOn),
+                findViewById(R.id.namute),
+                findViewById(R.id.naSMS),
+                findViewById(R.id.naWiFiOff),
+                findViewById(R.id.naWiFiOn),
+                // np
+                findViewById(R.id.npBluetooth),
+                findViewById(R.id.npcharging),
+                findViewById(R.id.npheadphones),
+                findViewById(R.id.npmissedCall),
+        };
+        for (View v : viewList){
+            v.setOnClickListener(this);
+        }
     }
 
-    void setAdapter(){
-        Log.d("MAYU", "setAdapter: " + ToolBox.regularMap.size());
-        String[] test = {};
-        test = (ToolBox.regularMap.values()).toArray(test);
-        ArrayAdapter premise_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, test);
-        premise_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spPremise.setAdapter(premise_adapter);
-
-        ArrayAdapter action_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ToolBox.ACTION_SET);
-        action_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spAction.setAdapter(action_adapter);
-    }
-
-    void setListener(){
-
-
-        startTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            time = "00:00";
-            View  itemView = getLayoutInflater().inflate(R.layout.dialog_pick_time,null);
-            AlertDialog.Builder dialog = new AlertDialog.Builder(NewRegularActivity.this);
-            dialog.setView(itemView);
-            TimePicker timePicker = (TimePicker) itemView.findViewById(R.id.timePicker);
-            timePicker.setIs24HourView(true);
-            timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
-                @Override
-                public void onTimeChanged(TimePicker timePicker, int i, int i1) {
-                  time = i + ":" + i1;
-                }
-            });
-            dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    startTime.setText(time);
-                }
-            });
-            dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    startTime.setText("00:00");
-                }
-            });
-            dialog.show();
-            }
-        });
-
-        endTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                time = "23:59";
-                View  itemView = getLayoutInflater().inflate(R.layout.dialog_pick_time,null);
-                AlertDialog.Builder dialog = new AlertDialog.Builder(NewRegularActivity.this);
+    @Override
+    public void onClick(View v) {
+        View  itemView;
+        AlertDialog.Builder dialog;
+        TimePicker timePicker;
+        switch (v.getId()){
+            case R.id.nrstartTime:
+                 time = "00:00";
+                itemView = getLayoutInflater().inflate(R.layout.dialog_pick_time,null);
+                dialog = new AlertDialog.Builder(NewRegularActivity.this);
                 dialog.setView(itemView);
-                TimePicker timePicker = (TimePicker) itemView.findViewById(R.id.timePicker);
+                timePicker = (TimePicker) itemView.findViewById(R.id.timePicker);
                 timePicker.setIs24HourView(true);
                 timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
                     @Override
@@ -162,45 +152,50 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        endTime.setText(time);
+                        sTime.setText(time);
                     }
                 });
                 dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        endTime.setText("23:59");
+                        sTime.setText("00:00");
                     }
                 });
                 dialog.show();
-            }
-        });
-
-        spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (ToolBox.ACTION_SET[i].equals("打开应用")){
-                    Intent intent = new Intent(NewRegularActivity.this,PickAppActivity.class);
-                    startActivityForResult(intent, ToolBox.PICK_START_APP);
-                }else{
-                    actionInfo = " ";
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-
-        });
-
-        getDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case  R.id.nrendTime:
+                time = "23:59";
+                itemView = getLayoutInflater().inflate(R.layout.dialog_pick_time,null);
+                dialog = new AlertDialog.Builder(NewRegularActivity.this);
+                dialog.setView(itemView);
+                timePicker = (TimePicker) itemView.findViewById(R.id.timePicker);
+                timePicker.setIs24HourView(true);
+                timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+                    @Override
+                    public void onTimeChanged(TimePicker timePicker, int i, int i1) {
+                        time = i + ":" + i1;
+                    }
+                });
+                dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        eTime.setText(time);
+                    }
+                });
+                dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        eTime.setText("23:59");
+                    }
+                });
+                dialog.show();
+                break;
+            case R.id.nrdate:
 
                 View contentView = LayoutInflater.from(NewRegularActivity.this).inflate(R.layout.pop_pick_date, null);
 
                 final PopupWindow popupWindow = new PopupWindow(contentView,
-                        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
                 popupWindow.setTouchable(true);
                 popupWindow.setBackgroundDrawable(new ColorDrawable());
                 Button fiveDay = (Button)contentView.findViewById(R.id.fiveDay);
@@ -209,14 +204,14 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 fiveDay.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        getDate.setText("星期一 星期二 星期三 星期四 星期五");
+                        date.setText("星期一 星期二 星期三 星期四 星期五");
                         popupWindow.dismiss();
                     }
                 });
                 everyDay.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        getDate.setText("每天");
+                        date.setText("每天");
                         popupWindow.dismiss();
                     }
                 });
@@ -224,78 +219,73 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 aHa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        View  itemView = getLayoutInflater().inflate(R.layout.dialog_pick_date,null);
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(NewRegularActivity.this);
-                        dialog.setView(itemView);
-                        dialog.setTitle("请选择规则执行时间");
-                        final CheckBox checkBox1 = (CheckBox)itemView.findViewById(R.id.checkBox1);
-                        final CheckBox checkBox2 = (CheckBox)itemView.findViewById(R.id.checkBox2);
-                        final CheckBox checkBox3 = (CheckBox)itemView.findViewById(R.id.checkBox3);
-                        final CheckBox checkBox4 = (CheckBox)itemView.findViewById(R.id.checkBox4);
-                        final CheckBox checkBox5 = (CheckBox)itemView.findViewById(R.id.checkBox5);
-                        final CheckBox checkBox6 = (CheckBox)itemView.findViewById(R.id.checkBox6);
-                        final CheckBox checkBox7 = (CheckBox)itemView.findViewById(R.id.checkBox7);
-                        dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                ArrayList<String> dateList = new ArrayList<>();
-                                if (checkBox1.isChecked()) {
-                                    dateList.add("星期日");
-                                }
-                                if (checkBox2.isChecked()) {
-                                    dateList.add("星期一");
-                                }
-                                if (checkBox3.isChecked()) {
-                                    dateList.add("星期二");
-                                }
-                                if (checkBox4.isChecked()) {
-                                    dateList.add("星期三");
-                                }
-                                if (checkBox5.isChecked()) {
-                                    dateList.add("星期四");
-                                }
-                                if (checkBox6.isChecked()) {
-                                    dateList.add("星期五");
-                                }
-                                if (checkBox7.isChecked()) {
-                                    dateList.add("星期六");
-                                }
-                                if(dateList.size() == 7){
-                                    getDate.setText("每天");
-                                }else{
-                                    String tempDate = "";
-                                    for (String s : dateList) {
-                                        tempDate = tempDate + " " + s;
-                                    }
-                                    getDate.setText(tempDate);
-                                }
+                    View  itemView = getLayoutInflater().inflate(R.layout.dialog_pick_date,null);
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(NewRegularActivity.this);
+                    dialog.setView(itemView);
+                    dialog.setTitle("请选择规则执行时间");
+                    final CheckBox checkBox1 = (CheckBox)itemView.findViewById(R.id.checkBox1);
+                    final CheckBox checkBox2 = (CheckBox)itemView.findViewById(R.id.checkBox2);
+                    final CheckBox checkBox3 = (CheckBox)itemView.findViewById(R.id.checkBox3);
+                    final CheckBox checkBox4 = (CheckBox)itemView.findViewById(R.id.checkBox4);
+                    final CheckBox checkBox5 = (CheckBox)itemView.findViewById(R.id.checkBox5);
+                    final CheckBox checkBox6 = (CheckBox)itemView.findViewById(R.id.checkBox6);
+                    final CheckBox checkBox7 = (CheckBox)itemView.findViewById(R.id.checkBox7);
+                    dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        ArrayList<String> dateList = new ArrayList<>();
+                        if (checkBox1.isChecked()) {
+                            dateList.add("星期日");
+                        }
+                        if (checkBox2.isChecked()) {
+                            dateList.add("星期一");
+                        }
+                        if (checkBox3.isChecked()) {
+                            dateList.add("星期二");
+                        }
+                        if (checkBox4.isChecked()) {
+                            dateList.add("星期三");
+                        }
+                        if (checkBox5.isChecked()) {
+                            dateList.add("星期四");
+                        }
+                        if (checkBox6.isChecked()) {
+                            dateList.add("星期五");
+                        }
+                        if (checkBox7.isChecked()) {
+                            dateList.add("星期六");
+                        }
+                        if(dateList.size() == 7){
+                            date.setText("每天");
+                        }else{
+                            String tempDate = "";
+                            for (String s : dateList) {
+                                tempDate = tempDate + " " + s;
                             }
-                        });
-                        dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                getDate.setText("每天");
-                            }
-                        });
-                        dialog.show();
-                        popupWindow.dismiss();
+                            date.setText(tempDate);
+                        }
+                        }
+                    });
+                    dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            date.setText("每天");
+                        }
+                    });
+                    dialog.show();
+                    popupWindow.dismiss();
                     }
                 });
-                popupWindow.showAtLocation(view, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-            }
-        });
-
-        add_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                if(!setLocation.isChecked()){
+                popupWindow.showAtLocation(v, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+                break;
+            case R.id.add_button:
+                Toast.makeText(this, " test ", Toast.LENGTH_SHORT).show();
+                if(!locSwitch.isChecked()){
                     location = "未使用地理位置限制";
                     address = "未使用地理位置限制";
                 }
 
-                if(!ToolBox.checkTimeSe(startTime.getText().toString(),endTime.getText().toString())){
+                if(!ToolBox.checkTimeSe(sTime.getText().toString(),eTime.getText().toString())){
                     Toast.makeText(NewRegularActivity.this, "规则执行起止时间设置不合法", Toast.LENGTH_SHORT).show();
                     return ;
                 }
@@ -304,18 +294,14 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                     return;
                 }
 
-                String status = "1";
-                String date = getDate.getText().toString();
-                time = startTime.getText().toString() + " " + endTime.getText().toString();
-                String premise = spPremise.getSelectedItem().toString();
-                String action = spAction.getSelectedItem().toString();
+
 
                 RegularDBHelper dbHelper = new RegularDBHelper(NewRegularActivity.this, "regular.db", null, 1);
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
-                values.put("status", status);
-                values.put("date", date);
-                values.put("time", time);
+                values.put("status", 1);
+                values.put("date", date.getText().toString());
+                values.put("time", sTime.getText().toString() + " " + eTime.getText().toString());
                 values.put("location", location);
                 values.put("address",address);
                 values.put("premise", premise);
@@ -326,18 +312,19 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 values.clear();
                 Cursor cursor = db.query("RegularInfo", null, null, null, null, null, null);
                 MainActivity.regList.clear();
+
                 if (cursor.moveToFirst()) {
                     do {
                         String id = cursor.getString(cursor.getColumnIndex("id"));
-                        status = cursor.getString(cursor.getColumnIndex("status"));
-                        date = cursor.getString(cursor.getColumnIndex("date"));
-                        time = cursor.getString(cursor.getColumnIndex("time"));
-                        location = cursor.getString(cursor.getColumnIndex("location"));
-                        address = cursor.getString(cursor.getColumnIndex("address"));
-                        premise = cursor.getString(cursor.getColumnIndex("premise"));
-                        premiseInfo = cursor.getString(cursor.getColumnIndex("premiseInfo"));
-                        action = cursor.getString(cursor.getColumnIndex("action"));
-                        actionInfo = cursor.getString(cursor.getColumnIndex("actionInfo"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+                        String date = cursor.getString(cursor.getColumnIndex("date"));
+                        String time = cursor.getString(cursor.getColumnIndex("time"));
+                        String location = cursor.getString(cursor.getColumnIndex("location"));
+                        String address = cursor.getString(cursor.getColumnIndex("address"));
+                        String premise = cursor.getString(cursor.getColumnIndex("premise"));
+                        String premiseInfo = cursor.getString(cursor.getColumnIndex("premiseInfo"));
+                        String action = cursor.getString(cursor.getColumnIndex("action"));
+                        String actionInfo = cursor.getString(cursor.getColumnIndex("actionInfo"));
                         MainActivity.regList.add(new RegularInfo(id, status, date, time, location,address, premise,
                                 premiseInfo, action, actionInfo));
                     } while (cursor.moveToNext());
@@ -345,17 +332,52 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 }
                 MainActivity.adapter.notifyDataSetChanged();
                 NewRegularActivity.this.finish();
-            }
-
-        });
-
-        cancel_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.cancel_button:
                 NewRegularActivity.this.finish();
-            }
-        });
+                break;
+            case R.id.npBluetooth:
+                premise = "打开蓝牙";
+                break;
+            case R.id.npheadphones:
+                premise = "插入耳机";
+                break;
+            case R.id.npmissedCall:
+                premise = "未接来电";
+                break;
+            case R.id.npcharging:
+                premise = "充电连接";
+                break;
+            case R.id.naApplication:
+                action = "打开应用";
+                Intent intent = new Intent(NewRegularActivity.this,PickAppActivity.class);
+                startActivityForResult(intent, ToolBox.PICK_START_APP);
+                break;
+            case R.id.naBluetoothOff:
+                action = "关闭蓝牙";
+                break;
+            case R.id.naBluetoothOn:
+                action = "打开蓝牙";
+                break;
+            case R.id.naWiFiOff:
+                action = "关闭Wi-Fi";
+                break;
+            case R.id.naWiFiOn:
+                action = "打开Wi-Fi";
+                break;
+            case R.id.naSMS:
+                action = "回复短信";
+                break;
+            case R.id.namute :
+                action = "静音模式";
+                break;
+
+        }
     }
+
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
