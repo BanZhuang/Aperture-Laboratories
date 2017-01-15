@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,8 +53,6 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         buildListview();
         buildPkgMap();
         initObserver();
-
-
     }
     public void initObserver(){
         MCCObserver missedCallObserver = new MCCObserver(this.getApplicationContext(),null);

@@ -67,9 +67,9 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
     private String time = "00:00";
 
     // 没有文本交互控件
-    private String premise = " ";
+    private String premise = "打开蓝牙";
     private String premiseInfo = " ";
-    private String action = " ";
+    private String action = "打开Wi-Fi";
     private String actionInfo = " ";
 
     private String address = " ";
@@ -293,8 +293,6 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                     Toast.makeText(NewRegularActivity.this, "你没有选择要打开的应用", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-
 
                 RegularDBHelper dbHelper = new RegularDBHelper(NewRegularActivity.this, "regular.db", null, 1);
                 SQLiteDatabase db = dbHelper.getWritableDatabase();

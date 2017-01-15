@@ -52,7 +52,8 @@
 
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".PickAppActivity" />
+        <activity android:name=".PickAppActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
