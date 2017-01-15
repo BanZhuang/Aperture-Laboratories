@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
             return true;
         }
         if (item.getItemId() == R.id.set_loc){
-            Toast.makeText(this, " 设置定位精度 施工中", Toast.LENGTH_SHORT).show();
             return true;
         }
         if (item.getItemId() == R.id.about){

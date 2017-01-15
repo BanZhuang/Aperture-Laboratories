@@ -80,23 +80,19 @@ public class MeidoService extends Service {
                 case BluetoothAdapter.ACTION_STATE_CHANGED:
                     int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR);
                     if (state == BluetoothAdapter.STATE_ON){
-                        Toast.makeText(context, "测试用 接收到广播 蓝牙打开" , Toast.LENGTH_SHORT).show();
                         searchAction(ToolBox.regularMap.get(BluetoothAdapter.ACTION_STATE_CHANGED));
                     }
                     break;
                 case Intent.ACTION_HEADSET_PLUG:
                     if ((1 == intent.getIntExtra("state", 0))) {
-                        Toast.makeText(context, "测试用 接收到广播 耳机插入" , Toast.LENGTH_SHORT).show();
                         searchAction(ToolBox.regularMap.get(Intent.ACTION_HEADSET_PLUG));
                         abortBroadcast();
                     }
                     break;
                 case Intent.ACTION_POWER_CONNECTED:
-                    Toast.makeText(context, "测试用 接收到广播 电源连接" , Toast.LENGTH_SHORT).show();
                     searchAction(ToolBox.regularMap.get(Intent.ACTION_POWER_CONNECTED));
                     break;
                 case "com.cute.meido.MISSED_CALL":
-                    Toast.makeText(context, "测试用 接收到广播 未接来电" , Toast.LENGTH_SHORT).show();
                     telNumber = intent.getStringExtra("number");
                     searchAction(ToolBox.regularMap.get("com.cute.meido.MISSED_CALL"));
                     break;
@@ -154,7 +150,6 @@ public class MeidoService extends Service {
         AudioManager audioManager;
         switch (action) {
             case "关闭Wi-Fi":
-                Toast.makeText(context, "即将关闭wifi", Toast.LENGTH_SHORT).show();
                 wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
                 if (wifiManager.isWifiEnabled()) {
                     wifiManager.setWifiEnabled(false);
@@ -162,7 +157,6 @@ public class MeidoService extends Service {
                 break;
 
             case "打开Wi-Fi":
-                Toast.makeText(context, "即将打开wifi", Toast.LENGTH_SHORT).show();
                 wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
                 if (!wifiManager.isWifiEnabled()) {
                     wifiManager.setWifiEnabled(true);
@@ -201,7 +195,6 @@ public class MeidoService extends Service {
                 startActivity(intent);
                 break;
             case "静音模式":
-                Toast.makeText(context, "jingyin seshi ", Toast.LENGTH_SHORT).show();
                 audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
 
 
@@ -287,7 +280,6 @@ public class MeidoService extends Service {
     }
     private void doActionUnMote(){
         AudioManager audioManager;
-        Toast.makeText(this, " 取消静音 施工中", Toast.LENGTH_SHORT).show();
         Context context = getBaseContext();
         audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
         final int version = Build.VERSION.SDK_INT;

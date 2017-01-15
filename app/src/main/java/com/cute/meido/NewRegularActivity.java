@@ -279,7 +279,6 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 popupWindow.showAtLocation(v, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                 break;
             case R.id.add_button:
-                Toast.makeText(this, " test ", Toast.LENGTH_SHORT).show();
                 if(!locSwitch.isChecked()){
                     location = "未使用地理位置限制";
                     address = "未使用地理位置限制";

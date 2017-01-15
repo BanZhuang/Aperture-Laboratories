@@ -30,10 +30,8 @@ public class AppInfoAdapter extends ArrayAdapter<AppInfo> {
         View view = LayoutInflater.from(getContext()).inflate(resourceId,null);
         ImageView imageView = (ImageView)view.findViewById(R.id.imageView);
         TextView textView = (TextView)view.findViewById(R.id.textView);
-        TextView textView2 = (TextView)view.findViewById(R.id.textView2);
         imageView.setImageDrawable(appInfo.getAppIcon());
         textView.setText(appInfo.getAppLabel());
-        textView2.setText(appInfo.getPkgName());
         return view;
     }
 }
