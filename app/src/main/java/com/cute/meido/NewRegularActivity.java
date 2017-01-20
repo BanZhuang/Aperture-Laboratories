@@ -9,20 +9,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.renderscript.Script;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.PopupWindow;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -40,6 +35,7 @@ import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.BitmapDescriptorFactory;
 import com.amap.api.maps2d.model.MyLocationStyle;
 import com.cute.meido.adapter.RegularInfo;
+import com.cute.meido.utils.RegularDBHelper;
 import com.cute.meido.utils.ToolBox;
 
 import java.util.ArrayList;
@@ -309,7 +305,6 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 values.clear();
                 Cursor cursor = db.query("RegularInfo", null, null, null, null, null, null);
                 MainActivity.regList.clear();
-
                 if (cursor.moveToFirst()) {
                     do {
                         String id = cursor.getString(cursor.getColumnIndex("id"));

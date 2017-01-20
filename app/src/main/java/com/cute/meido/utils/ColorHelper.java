@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cute.meido;
+package com.cute.meido.utils;
 
 import android.app.Application;
 import android.content.Context;
@@ -22,13 +22,14 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 
 import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.cute.meido.R;
 import com.cute.meido.utils.ThemeHelper;
 
 /**
  * @author xyczero
  * @time 16/5/2
  */
-public class MyApplication extends Application implements ThemeUtils.switchColor {
+public class ColorHelper extends Application implements ThemeUtils.switchColor {
 
     @Override
     public void onCreate() {

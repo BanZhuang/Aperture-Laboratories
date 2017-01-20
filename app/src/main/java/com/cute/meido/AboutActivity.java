@@ -3,7 +3,7 @@ package com.cute.meido;
 import android.os.Bundle;
 import android.app.Activity;
 
-public class ScrollingActivity extends Activity {
+public class AboutActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

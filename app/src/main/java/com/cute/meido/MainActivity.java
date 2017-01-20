@@ -13,9 +13,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import com.bilibili.magicasakura.utils.ThemeUtils;
-import com.cute.meido.adapter.RegularAdapter;
+import com.cute.meido.adapter.RegularInfoAdapter;
 import com.cute.meido.adapter.RegularInfo;
-import com.cute.meido.dialog.CardPickerDialog;
+import com.cute.meido.dialog.ThemePickerDialog;
+import com.cute.meido.utils.MCCObserver;
+import com.cute.meido.utils.RegularDBHelper;
 import com.cute.meido.utils.ThemeHelper;
 
 import android.support.design.widget.Snackbar;
@@ -30,16 +32,15 @@ import android.provider.CallLog;
 import android.support.v7.app.AlertDialog;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements CardPickerDialog.ClickListener {
+public class MainActivity extends AppCompatActivity implements ThemePickerDialog.ClickListener {
 
-    public static RegularAdapter adapter;
+    public static RegularInfoAdapter adapter;
     public static List<RegularInfo> regList;
     public static HashMap<String,String> pkgMap;
     @Override
@@ -84,9 +85,9 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.change_theme) {
-            CardPickerDialog dialog = new CardPickerDialog();
+            ThemePickerDialog dialog = new ThemePickerDialog();
             dialog.setClickListener(this);
-            dialog.show(getSupportFragmentManager(), CardPickerDialog.TAG);
+            dialog.show(getSupportFragmentManager(), ThemePickerDialog.TAG);
             return true;
         }
         if (item.getItemId() == R.id.add_regular){
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
             return true;
         }
         if (item.getItemId() == R.id.about){
-            startActivity(new Intent(MainActivity.this,ScrollingActivity.class));
+            startActivity(new Intent(MainActivity.this,AboutActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -142,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
             } while (cursor.moveToNext());
             cursor.close();
         }
-        adapter = new RegularAdapter(MainActivity.this, R.layout.listview_regular, regList);
+        adapter = new RegularInfoAdapter(MainActivity.this, R.layout.listview_regular, regList);
         ListView listView = (ListView) findViewById(R.id.main_listView);
         listView.setVerticalScrollBarEnabled(false);
         listView.setFastScrollEnabled(false);

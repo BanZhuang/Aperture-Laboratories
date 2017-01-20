@@ -34,8 +34,8 @@ import com.cute.meido.R;
  * @author xyczero
  * @time 16/5/29
  */
-public class CardPickerDialog extends DialogFragment implements View.OnClickListener {
-    public static final String TAG = "CardPickerDialog";
+public class ThemePickerDialog extends DialogFragment implements View.OnClickListener {
+    public static final String TAG = "ThemePickerDialog";
     ImageView[] mCards = new ImageView[8];
     Button mConfirm;
     Button mCancel;

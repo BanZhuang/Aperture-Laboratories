@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'release'
             keyPassword 'release'
-            storeFile file('C:/Users/Cute/Documents/毕业设计 代码部分/key hash/release.jks')
+            storeFile file('C:/Work/release.jks')
             storePassword 'release'
         }
     }

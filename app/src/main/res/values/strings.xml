@@ -13,25 +13,30 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
-        "           Meido 基于LBS的安卓生活助手\n\n\n"
-        "   Build:2017年1月13日17:44:20 \n\n"
-        "   Build by Cutecore E-mail:cutecore@outlook.com\n\n"
-        "   Power by Google Android Studio,Orcale JAVA,Sqlite,"
-        "AMAP(高德),Bilibili(哔哩哔哩),NIPPON COLORS \n\n"
-        "   本安卓应用开发受到一款中文翻译名为触发器的软件影响,时间久远后再去"
-        "寻找时未能找到该应用,打算做一个类似的应用.\n\n\n"
-        "想做一个类似Contra,基于LBS的定位和地理围栏的智能助手,"
-        "应用程序在场景触发后自动执行用户制定的行为.\n\n\n"
-        "在制作初期简单试用了 的软件 \n\n\n"
-        "项目定位及地图由高德开放平台提供\n\n"
-        "高德开放平台 http://lbs.amap.com/api/android-sdk/summary/ \n\n"
-        "开发中使用的主题控件字体颜色源自 NIPPON COLORS - 日本の伝統色 \n\n"
-        "网站地址 http://nipponcolors.com \n\n"
-        "开发中使用的多主题实现采用的Bilibili开源项目MagicaSakura解决方案.\n\n"
-        "Github地址 https://github.com/Bilibili/MagicaSakura \n\n"
-        "本项目CuteCore-s-Graduate-Project的原始版本的包含功能 \n\n"
+        "Meido 基于LBS的安卓生活助手\n\n"
+        "Build: Cutecore 2017年1月13日17:44:20\n\n"
+        "E-mail:cutecore@outlook.com\n\n"
+
+        "本安卓应用开发受到一款中文翻译名为触发器的软件影响,时间久远后再去寻找时未能找到该应用,打算做一个类似的应用.\n\n"
+        "想做一个类似Contra,基于LBS的定位和地理围栏的智能助手,应用程序在场景触发后自动执行用户制定的行为.\n\n"
+        "在制作初期简单试用了类似的软件,室友也帮助我进行了测试,并提出了宝贵的意见 \n\n"
+
+        "本项目原始版本(CuteCore-s-Graduate-Project) 包含基础功能 \n"
         "Github地址 https://github.com/cutecore/CuteCore-s-Graduate-Project \n\n"
-        "本项目完整版本 受命运石之门影响改项目名为futuregadget-lab(未来道具研究所) \n\n"
+        "本项目完整版本(futuregadget-lab(未来道具研究所)) \n"
         "Github地址 https://github.com/cutecore/futuregadget-lab \n\n"
+
+        "Android Studio \n"
+        "https://developer.android.com \n\n"
+        "Open JDK(Orcale) \n"
+        "https://http://openjdk.java.net \n\n"
+        "SQLite \n"
+        "https://www.sqlite.org \n\n"
+        "AMAP 高德开放平台 \n"
+        "http://lbs.amap.com/api/android-sdk/summary \n\n"
+        "NIPPON COLORS - 日本の伝統色 \n"
+        "http://nipponcolors.com \n\n"
+        "Bilibili(哔哩哔哩) MagicaSakura.\n"
+        "https://github.com/Bilibili/MagicaSakura \n\n"
     </string>
 </resources>

@@ -1,4 +1,4 @@
-package com.cute.meido;
+package com.cute.meido.utils;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

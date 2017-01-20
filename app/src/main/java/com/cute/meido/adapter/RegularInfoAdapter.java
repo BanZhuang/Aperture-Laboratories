@@ -19,9 +19,9 @@ import java.util.List;
  */
 
 
-public class RegularAdapter extends ArrayAdapter<RegularInfo> {
+public class RegularInfoAdapter extends ArrayAdapter<RegularInfo> {
     private int resourceId;
-    public RegularAdapter(Context context, int textViewResourceId, List<RegularInfo> objects) {
+    public RegularInfoAdapter(Context context, int textViewResourceId, List<RegularInfo> objects) {
         super(context, textViewResourceId, objects);
         resourceId = textViewResourceId;
     }
