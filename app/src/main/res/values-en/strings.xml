@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meido</string>
+    <string name="Friday">Friday</string>
+    <string name="Monday">Monday</string>
+    <string name="Saturday">Saturday</string>
+    <string name="Sunday">Sunday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wednesday">Wednesday</string>
+    <string name="bluetoothEnable">bluetoothEnable</string>
+    <string name="date">date</string>
+    <string name="endTime" translatable="false">endTime</string>
+    <string name="workday" translatable="false">Monday Tuesday Wednesday Thursday Friday</string>
+</resources>

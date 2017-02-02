@@ -1,31 +1,56 @@
 <resources>
+    <!--  2017年2月2日15:34:45 更新   多语言准备 -->
+
+    <string name="date">执行日期</string>
+    <string name="time" translatable="false">时间范围</string>
+    <string name="startTime" translatable="false">开始时间</string>
+    <string name="endTime">结束时间</string>
+
+    <string name ="Monday">星期一</string>
+    <string name ="Tuesday">星期二</string>
+    <string name ="Wednesday">星期三</string>
+    <string name ="Thursday">星期四</string>
+    <string name ="Friday">星期五</string>
+    <string name ="Saturday">星期六</string>
+    <string name ="Sunday">星期日</string>
+    <string name="location" translatable="false">地理位置范围</string>
+    <string name="switchx" translatable="false">启用</string>
+    <string name="premise" translatable="false">触发条件</string>
+
+    <string name="bluetoothEnable">打开蓝牙</string>
+    <string name="headphonesEnable" translatable="false">插入耳机</string>
+    <string name="missCall" translatable="false">未接来电</string>
+    <string name="charging">充电连接</string>
+
+
+    <!--  <string workday = "Monday Tuesday Wednesday Thursday Friday"></string> -->
+
+    <string name = "workday">星期一 星期二 星期三 星期四 星期五</string>
+
+
+
+
+
+
+    <!-- -->
     <string name="app_name">Meido</string>
-    <string name="title_activity_main">Meido</string>
-    <string name="notifyTitle">提示</string>
-    <string name="notifyMsg">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。</string>
-    <string name="setting">设置</string>
+
+    <string name="setting" translatable="false">设置</string>
     <string name="cancel">取消</string>
-    <string name="confirm">确定</string>
+    <string name="confirm" translatable="false">确定</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="large_text">
+    <string name="title_activity_scrolling" translatable="false">ScrollingActivity</string>
+    <string name="large_text" translatable="false">
         "Meido 基于LBS的安卓生活助手\n\n"
         "Build: Cutecore 2017年1月13日17:44:20\n\n"
         "E-mail:cutecore@outlook.com\n\n"
-
         "本安卓应用开发受到一款中文翻译名为触发器的软件影响,时间久远后再去寻找时未能找到该应用,打算做一个类似的应用.\n\n"
         "想做一个类似Contra,基于LBS的定位和地理围栏的智能助手,应用程序在场景触发后自动执行用户制定的行为.\n\n"
         "在制作初期简单试用了类似的软件,室友也帮助我进行了测试,并提出了宝贵的意见 \n\n"
-
-        "本项目原始版本(CuteCore-s-Graduate-Project) 包含基础功能 \n"
+        "本项目原始版本 \n"
         "Github地址 https://github.com/cutecore/CuteCore-s-Graduate-Project \n\n"
-        "本项目完整版本(futuregadget-lab(未来道具研究所)) \n"
+        "本项目完整版本 \n"
         "Github地址 https://github.com/cutecore/futuregadget-lab \n\n"
-
         "Android Studio \n"
         "https://developer.android.com \n\n"
         "Open JDK(Orcale) \n"
@@ -36,7 +61,7 @@
         "http://lbs.amap.com/api/android-sdk/summary \n\n"
         "NIPPON COLORS - 日本の伝統色 \n"
         "http://nipponcolors.com \n\n"
-        "Bilibili(哔哩哔哩) MagicaSakura.\n"
+        "Bilibili (哔哩哔哩) MagicaSakura \n"
         "https://github.com/Bilibili/MagicaSakura \n\n"
     </string>
 </resources>

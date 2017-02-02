@@ -47,7 +47,7 @@
 
         <com.bilibili.magicasakura.widgets.TintTextView
             android:textColor="@color/theme_color_primary"
-            android:text="执行日期"
+            android:text="@string/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
@@ -63,7 +63,7 @@
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="星期一 星期二 星期三 星期四 星期五"
+                android:text="@string/workday"
                 android:padding="10dp"
                 android:id="@+id/nrdate" />
         </LinearLayout>
@@ -77,7 +77,7 @@
 
         <com.bilibili.magicasakura.widgets.TintTextView
             android:textColor="@color/theme_color_primary"
-            android:text="时间范围"
+            android:text="@string/time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView5"
@@ -93,7 +93,7 @@
 
                 <com.bilibili.magicasakura.widgets.TintTextView
                     android:textColor="@color/theme_color_primary"
-                    android:text="开始时间"
+                    android:text="@string/startTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView11"
@@ -112,7 +112,7 @@
             <TableRow>
                 <com.bilibili.magicasakura.widgets.TintTextView
                     android:textColor="@color/theme_color_primary"
-                    android:text="结束时间"
+                    android:text="@string/endTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView12"
@@ -151,12 +151,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView6"
-                    android:text="地理位置范围"
+                    android:text="@string/location"
                     android:padding="10dp"/>
 
                 <Switch
                     android:textColor="@color/theme_color_primary"
-                    android:text="启用"
+                    android:text="@string/switchx"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/locSwitch" />
@@ -179,7 +179,7 @@
 
         <com.bilibili.magicasakura.widgets.TintTextView
             android:textColor="@color/theme_color_primary"
-            android:text="触发条件"
+            android:text="@string/premise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView7"
@@ -194,26 +194,38 @@
             android:layout_height="wrap_content"
             >
             <com.bilibili.magicasakura.widgets.TintRadioButton
+
+                android:paddingRight="8dp"
+                android:gravity="right"
                 android:checked="true"
                 android:id="@+id/npBluetooth"
-                android:text = "打开蓝牙"
+                android:text = "@string/bluetoothEnable"
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+
+                android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/npheadphones"
-                android:text = "插入耳机"
+                android:text = "@string/headphonesEnable"
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+
+                android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/npmissedCall"
-                android:text = "未接来电"
+                android:text = "@string/missCall"
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+
+                android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/npcharging"
                 android:text = "充电连接"
                 android:textColor="@color/theme_color_primary"
@@ -242,6 +254,8 @@
             android:layout_height="wrap_content">
 
             <com.bilibili.magicasakura.widgets.TintRadioButton
+                 android:paddingRight="8dp"
+                android:gravity="right"
                 android:checked="true"
                 android:id="@+id/naWiFiOn"
                 android:text = "打开Wi-Fi"
@@ -249,36 +263,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+                 android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/naWiFiOff"
                 android:text = "关闭Wi-Fi"
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+                 android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/naBluetoothOn"
                 android:text = "打开蓝牙"
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+                 android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/naBluetoothOff"
                 android:text = "关闭蓝牙"
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+                 android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/naApplication"
                 android:text = "打开应用"
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+                 android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/naSMS"
                 android:text = "回复短信"
                 android:textColor="@color/theme_color_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <com.bilibili.magicasakura.widgets.TintRadioButton
+                 android:paddingRight="8dp"
+                android:gravity="right"
                 android:id="@+id/namute"
                 android:text = "静音模式"
                 android:textColor="@color/theme_color_primary"

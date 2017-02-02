@@ -65,7 +65,6 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_scrolling" />
 
-        <activity android:name=".SettingActivity" />
         <activity android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

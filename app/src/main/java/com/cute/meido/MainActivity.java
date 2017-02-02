@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements ThemePickerDialog
             return true;
         }
         if (item.getItemId() == R.id.set_loc){
-            startActivity(new Intent(MainActivity.this, SettingActivity.class));
             return true;
         }
         if (item.getItemId() == R.id.about){
