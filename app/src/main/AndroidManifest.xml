@@ -52,10 +52,21 @@
 
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".PickAppActivity"
+        <activity
+            android:name=".PickAppActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_scrolling" />
+
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,9 +74,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AboutActivity"
-            android:label="@string/title_activity_scrolling"></activity>
     </application>
 
 </manifest>
