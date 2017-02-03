@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.PopupWindow;
@@ -65,7 +66,7 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
     // 没有文本交互控件
     private String premise = "打开蓝牙";
     private String premiseInfo = " ";
-    private String action = "打开Wi-Fi";
+    private String action = "关闭蓝牙";
     private String actionInfo = " ";
 
     private String address = " ";
@@ -75,6 +76,8 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
     private TextView sTime;
     private TextView eTime;
     private Switch locSwitch;
+    private TextView uipremise;
+    private TextView uiaction;
 
 
 
@@ -95,6 +98,9 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
         sTime = (TextView)findViewById(R.id.nrstartTime);
         eTime = (TextView)findViewById(R.id.nrendTime);
         locSwitch = (Switch)findViewById(R.id.locSwitch);
+        uipremise = (TextView)findViewById(R.id.uipremise);
+        uiaction = (TextView)findViewById(R.id.uiaction);
+
 
         //
         View viewList[]  = {
@@ -108,18 +114,10 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 findViewById(R.id.cancel_button),
                 findViewById(R.id.add_button),
                 // na 系
-                findViewById(R.id.naApplication),
-                findViewById(R.id.naBluetoothOff),
-                findViewById(R.id.naBluetoothOn),
-                findViewById(R.id.namute),
-                findViewById(R.id.naSMS),
-                findViewById(R.id.naWiFiOff),
-                findViewById(R.id.naWiFiOn),
-                // np
-                findViewById(R.id.npBluetooth),
-                findViewById(R.id.npcharging),
-                findViewById(R.id.npheadphones),
-                findViewById(R.id.npmissedCall),
+
+                //new
+                findViewById(R.id.uipremise),
+                findViewById(R.id.uiaction)
         };
         for (View v : viewList){
             v.setOnClickListener(this);
@@ -132,6 +130,39 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
         AlertDialog.Builder dialog;
         TimePicker timePicker;
         switch (v.getId()){
+
+            case R.id.uipremise:
+                final AlertDialog.Builder builder = new AlertDialog.Builder(NewRegularActivity.this);
+                builder.setTitle("触发条件");
+                final String[] dateSource = new String[] {"打开蓝牙","插入耳机","未接来电","充电连接"};
+                builder.setSingleChoiceItems(dateSource, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       premise= dateSource[which];
+                    }
+                });
+                builder.setPositiveButton("确定",null);
+                builder.show();
+                break;
+
+            case R.id.uiaction:
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(NewRegularActivity.this);
+                builder2.setTitle("触发条件");
+                final String[] dateSource2 = new String[] {"关闭蓝牙","打开蓝牙","打开Wi-Fi","关闭Wi-Fi","回复短信","静音模式","打开应用"};
+                builder2.setSingleChoiceItems(dateSource2, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        action = dateSource2[which];
+                        if(action.equals("打开应用")){
+                              Intent intent = new Intent(NewRegularActivity.this,PickAppActivity.class);
+                                startActivityForResult(intent, ToolBox.PICK_START_APP);
+                        }
+                    }
+                });
+                builder2.setPositiveButton("确定",null);
+                builder2.show();
+                break;
+
             case R.id.nrstartTime:
                  time = "00:00";
                 itemView = getLayoutInflater().inflate(R.layout.dialog_pick_time,null);
@@ -187,70 +218,25 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                 dialog.show();
                 break;
             case R.id.nrdate:
-
-                View contentView = LayoutInflater.from(NewRegularActivity.this).inflate(R.layout.pop_pick_date, null);
-
-                final PopupWindow popupWindow = new PopupWindow(contentView,
-                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-                popupWindow.setTouchable(true);
-                popupWindow.setBackgroundDrawable(new ColorDrawable());
-                Button fiveDay = (Button)contentView.findViewById(R.id.fiveDay);
-                Button everyDay = (Button)contentView.findViewById(R.id.everyDay);
-                Button aHa = (Button)contentView.findViewById(R.id.aHa);
-                fiveDay.setOnClickListener(new View.OnClickListener() {
+                final ArrayList<String> dateList = new ArrayList<>();
+                final AlertDialog.Builder builder3 = new AlertDialog.Builder(NewRegularActivity.this);
+                builder3.setTitle("选择执行日期");
+                final String[] dateSource3 = new String[] {"星期一","星期二","星期三","星期四","星期五","星期六","星期日"};
+                builder3.setMultiChoiceItems(dateSource3, new boolean[]{false,false,false,false,false,false,false}, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        date.setText("星期一 星期二 星期三 星期四 星期五");
-                        popupWindow.dismiss();
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        if(isChecked){
+                            if(dateList.indexOf(dateSource3[which]) == -1)
+                                dateList.add(dateSource3[which]);
+                        }else{
+                            if(dateList.indexOf(dateSource3[which]) != -1)
+                                dateList.remove(dateSource3[which]);
+                        }
                     }
                 });
-                everyDay.setOnClickListener(new View.OnClickListener() {
+                builder3.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        date.setText("每天");
-                        popupWindow.dismiss();
-                    }
-                });
-                // aHa 确定按钮ID 但是使用其他变量名时运行出现问题 改为aha后没有问题 虽然知道问题所在 但是没有更改
-                aHa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    View  itemView = getLayoutInflater().inflate(R.layout.dialog_pick_date,null);
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(NewRegularActivity.this);
-                    dialog.setView(itemView);
-                    dialog.setTitle("请选择规则执行时间");
-                    final CheckBox checkBox1 = (CheckBox)itemView.findViewById(R.id.checkBox1);
-                    final CheckBox checkBox2 = (CheckBox)itemView.findViewById(R.id.checkBox2);
-                    final CheckBox checkBox3 = (CheckBox)itemView.findViewById(R.id.checkBox3);
-                    final CheckBox checkBox4 = (CheckBox)itemView.findViewById(R.id.checkBox4);
-                    final CheckBox checkBox5 = (CheckBox)itemView.findViewById(R.id.checkBox5);
-                    final CheckBox checkBox6 = (CheckBox)itemView.findViewById(R.id.checkBox6);
-                    final CheckBox checkBox7 = (CheckBox)itemView.findViewById(R.id.checkBox7);
-                    dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                        ArrayList<String> dateList = new ArrayList<>();
-                        if (checkBox1.isChecked()) {
-                            dateList.add("星期日");
-                        }
-                        if (checkBox2.isChecked()) {
-                            dateList.add("星期一");
-                        }
-                        if (checkBox3.isChecked()) {
-                            dateList.add("星期二");
-                        }
-                        if (checkBox4.isChecked()) {
-                            dateList.add("星期三");
-                        }
-                        if (checkBox5.isChecked()) {
-                            dateList.add("星期四");
-                        }
-                        if (checkBox6.isChecked()) {
-                            dateList.add("星期五");
-                        }
-                        if (checkBox7.isChecked()) {
-                            dateList.add("星期六");
-                        }
+                    public void onClick(DialogInterface dialog, int which) {
                         if(dateList.size() == 7){
                             date.setText("每天");
                         }else{
@@ -260,19 +246,9 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                             }
                             date.setText(tempDate);
                         }
-                        }
-                    });
-                    dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            date.setText("每天");
-                        }
-                    });
-                    dialog.show();
-                    popupWindow.dismiss();
                     }
                 });
-                popupWindow.showAtLocation(v, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+                builder3.show();
                 break;
             case R.id.add_button:
                 if(!locSwitch.isChecked()){
@@ -328,41 +304,9 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
             case R.id.cancel_button:
                 NewRegularActivity.this.finish();
                 break;
-            case R.id.npBluetooth:
-                premise = "打开蓝牙";
-                break;
-            case R.id.npheadphones:
-                premise = "插入耳机";
-                break;
-            case R.id.npmissedCall:
-                premise = "未接来电";
-                break;
-            case R.id.npcharging:
-                premise = "充电连接";
-                break;
-            case R.id.naApplication:
-                action = "打开应用";
-                Intent intent = new Intent(NewRegularActivity.this,PickAppActivity.class);
-                startActivityForResult(intent, ToolBox.PICK_START_APP);
-                break;
-            case R.id.naBluetoothOff:
-                action = "关闭蓝牙";
-                break;
-            case R.id.naBluetoothOn:
-                action = "打开蓝牙";
-                break;
-            case R.id.naWiFiOff:
-                action = "关闭Wi-Fi";
-                break;
-            case R.id.naWiFiOn:
-                action = "打开Wi-Fi";
-                break;
-            case R.id.naSMS:
-                action = "回复短信";
-                break;
-            case R.id.namute :
-                action = "静音模式";
-                break;
+
+
+
 
         }
     }

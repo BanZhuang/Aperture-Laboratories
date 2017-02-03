@@ -33,6 +33,8 @@ import android.support.v7.app.AlertDialog;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import junit.framework.Test;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements ThemePickerDialog
             return true;
         }
         if (item.getItemId() == R.id.set_loc){
+            startActivity(new Intent(MainActivity.this, TestActivity.class));
             return true;
         }
         if (item.getItemId() == R.id.about){

@@ -6,13 +6,13 @@
     <string name="startTime" translatable="false">开始时间</string>
     <string name="endTime">结束时间</string>
 
-    <string name ="Monday">星期一</string>
-    <string name ="Tuesday">星期二</string>
-    <string name ="Wednesday">星期三</string>
-    <string name ="Thursday">星期四</string>
-    <string name ="Friday">星期五</string>
-    <string name ="Saturday">星期六</string>
-    <string name ="Sunday">星期日</string>
+    <string name="Monday">星期一</string>
+    <string name="Tuesday">星期二</string>
+    <string name="Wednesday">星期三</string>
+    <string name="Thursday">星期四</string>
+    <string name="Friday">星期五</string>
+    <string name="Saturday">星期六</string>
+    <string name="Sunday">星期日</string>
     <string name="location" translatable="false">地理位置范围</string>
     <string name="switchx" translatable="false">启用</string>
     <string name="premise" translatable="false">触发条件</string>
@@ -25,11 +25,7 @@
 
     <!--  <string workday = "Monday Tuesday Wednesday Thursday Friday"></string> -->
 
-    <string name = "workday">星期一 星期二 星期三 星期四 星期五</string>
-
-
-
-
+    <string name="workday">星期一 星期二 星期三 星期四 星期五</string>
 
 
     <!-- -->
