@@ -1,12 +1,16 @@
 package com.cute.meido;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.cute.meido.utils.ToolBox;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -19,20 +23,11 @@ public class TestActivity extends AppCompatActivity {
         findViewById(R.id.button4561).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(TestActivity.this);
-                builder.setTitle("test 设置 标题");
-                //builder.setMessage(" test 设置消息");
-                final String[] dateSouce = new String[] {"1a","2b","3c","4d"};
+                TextView getStance = (TextView)findViewById(R.id.getdistance);
 
-                final String test = "";
-                builder.setMultiChoiceItems(dateSouce, new boolean[]{false,false,false,false}, new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-
-                    }
-                });
-                builder.show();
+                SharedPreferences.Editor editor = getSharedPreferences("settings",MODE_PRIVATE).edit();
+                editor.putInt("distance",Integer.valueOf(getStance.getText().toString()));
+                editor.commit();
             }
         });
     }

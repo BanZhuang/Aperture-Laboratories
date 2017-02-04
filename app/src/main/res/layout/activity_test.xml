@@ -10,13 +10,35 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.cute.meido.TestActivity">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="52dp"
+        android:id="@+id/editText" />
+
     <Button
         android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="133dp"
-        android:id="@+id/button4561" />
+        android:id="@+id/button4561"
+        android:layout_alignTop="@+id/editText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="13dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:layout_marginTop="83dp"
+        android:id="@+id/getdistance"
+        android:layout_below="@+id/button4561"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_marginEnd="10dp" />
+
 </RelativeLayout>

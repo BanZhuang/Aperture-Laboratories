@@ -264,6 +264,9 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
                     Toast.makeText(NewRegularActivity.this, "你没有选择要打开的应用", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(!action.equals("打开应用")){
+                    actionInfo = " ";
+                }
 
                 RegularDBHelper dbHelper = new RegularDBHelper(NewRegularActivity.this, "regular.db", null, 1);
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -343,7 +346,11 @@ public class NewRegularActivity  extends AppCompatActivity implements LocationSo
         aMap.getUiSettings().setMyLocationButtonEnabled(true);// 设置默认定位按钮是否显示
         aMap.setMyLocationEnabled(true);// 设置为true表示显示定位层并可触发定位，false表示隐藏定位层并不可触发定位，默认是false
         // aMap.setMyLocationType()
-    }
+        aMap.getUiSettings().setScrollGesturesEnabled(false); //  设置 禁止 拖动
+        aMap.getUiSettings().setZoomGesturesEnabled(false);
+        aMap.getUiSettings().setZoomControlsEnabled(false);
+
+}
     @Override
     protected void onResume() {
         super.onResume();

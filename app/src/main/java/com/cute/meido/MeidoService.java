@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,6 +16,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -239,7 +241,10 @@ public class MeidoService extends Service {
              Log.e(TAG, "checkLocation: [金丝雀] 之前定位失败!");
              return false;
          }
-         return (distance < 200);
+         SharedPreferences pref = getSharedPreferences("settings",MODE_PRIVATE);
+         int getDistance = pref.getInt("distance",200);
+         Toast.makeText(this, "" + getDistance, Toast.LENGTH_SHORT).show();
+         return (distance < getDistance);
     }
 
     private void stopLocation(){

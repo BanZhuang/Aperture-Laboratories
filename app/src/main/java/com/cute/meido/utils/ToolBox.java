@@ -31,6 +31,7 @@ public class ToolBox {
 	public final static String PICK_TIME = "PICK_TIME";
 	public static Map<String,String> regularMap = new HashMap<>();
 
+
 	static {
         regularMap.put(BluetoothAdapter.ACTION_STATE_CHANGED,"打开蓝牙");
         regularMap.put("android.intent.action.HEADSET_PLUG","插入耳机");

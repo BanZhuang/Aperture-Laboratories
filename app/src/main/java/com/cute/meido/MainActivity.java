@@ -2,6 +2,7 @@ package com.cute.meido;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -56,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements ThemePickerDialog
         buildListview();
         buildPkgMap();
         initObserver();
+        initPreferences();
+    }
+    public void initPreferences(){
+        SharedPreferences.Editor editor = getSharedPreferences("settings",MODE_PRIVATE).edit();
     }
     public void initObserver(){
         MCCObserver missedCallObserver = new MCCObserver(this.getApplicationContext(),null);
