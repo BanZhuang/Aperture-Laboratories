@@ -32,7 +32,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.CallLog;
 import android.support.v7.app.AlertDialog;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 import junit.framework.Test;
 
@@ -81,8 +84,6 @@ public class MainActivity extends AppCompatActivity implements ThemePickerDialog
         }
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -108,7 +109,37 @@ public class MainActivity extends AppCompatActivity implements ThemePickerDialog
             return true;
         }
         if (item.getItemId() == R.id.set_loc){
-            startActivity(new Intent(MainActivity.this, TestActivity.class));
+            final int  getProcess[] ={100};
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            View  view =(LinearLayout) getLayoutInflater().inflate(R.layout.loc_stettings,null);
+            builder.setView(view);
+            builder.setTitle("设置定位精度");
+            SeekBar seekBar = (SeekBar) view.findViewById(R.id.seekBar);
+            seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                    getProcess[0] = progress + 50;
+                    Toast.makeText(MainActivity.this, "" + getProcess[0], Toast.LENGTH_SHORT).show();
+                }
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
+            });
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    SharedPreferences.Editor editor = getSharedPreferences("settings", MODE_PRIVATE).edit();
+                    editor.putInt("distance", getProcess[0]);
+                    editor.commit();
+                }
+            });
+            builder.show();
             return true;
         }
         if (item.getItemId() == R.id.about){

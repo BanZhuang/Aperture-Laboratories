@@ -238,7 +238,7 @@ public class MeidoService extends Service {
              stopLocation();
          }
          if (LOC_SU == 0){
-             Log.e(TAG, "checkLocation: [金丝雀] 之前定位失败!");
+             Log.e(TAG, "checkLocation:  之前定位失败!");
              return false;
          }
          SharedPreferences pref = getSharedPreferences("settings",MODE_PRIVATE);
