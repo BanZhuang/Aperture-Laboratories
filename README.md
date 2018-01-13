@@ -1,9 +1,9 @@
 
-## futuregadget-lab
+## 基于LBS的Android生活助手
 
-加了更换主题的功能，使用哔哩哔哩 MagicaSakura 开源库。
+加了更换主题的功能，
 
-![cover](https://raw.githubusercontent.com/xyczero/MagicaSakura/master/screenshot/magicasakura_cover.png)
+使用哔哩哔哩 MagicaSakura 开源库。
 
 ##License
 
